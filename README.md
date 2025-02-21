@@ -1,57 +1,51 @@
-# Flask PostgreSQL Docker Project
+Flask PostgreSQL Docker Project
+This project provides a Dockerized Flask application connected to a PostgreSQL database. The setup includes a VNC server for graphical access and SSH capabilities for remote access. The Flask web application allows easy interaction with the database.
+Prerequisites
+Docker
+Git
+A web browser
+VNC client (for graphical access)
+Installation & Setup
+1. Clone the Repository
+Start by cloning the repository to your local machine:
+git clone https://github.com/amryyt/flask_postgres.git
+cd flask_postgres
 
-This repository contains a Dockerized Flask application connected to a PostgreSQL database. It provides a simple Flask web app that can interact with the database, and the Docker setup includes a VNC server for GUI access.
+2. Build the Docker Image
+Next, build the Docker image with the following command:
+docker build -t amryyt/flask_postgres .
 
-## Docker Image Build Instructions
+3. Running the Container
+Once the image is built, run the container using this command:
+docker run -d \
+  -p 8000:8000 \  # Flask web app (access via browser)
+  -p 9001:9001 \  # VNC server (for GUI access)
+  -p 22:22 \      # SSH access
+  -p 5432:5432 \  # PostgreSQL database
+  -p 5901:5901 \  # VNC port
+  --name flask_container \
+  amryyt/flask_postgres
 
-To build the Docker image, follow these steps:
-
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/amryyt/flask_postgres.git
-    cd flask_postgres
-    ```
-
-2. Build the Docker image using the following command:
-    ```bash
-    docker build -t amryyt/flask_postgres .
-    ```
-
-## Running the Container
-
-After building the Docker image, you can run the container using the command below. This will expose the required ports for your application.
-
-```bash
-docker run -d -p 8000:8000 -p 9001:9001 -p 22:22 -p 5432:5432 -p 5901:5901 --name flask_container amryyt/flask_postgres
-```
-Port 8000: Flask web app (accessible via your browser)
-Port 9001: VNC server (for graphical access)
-Port 22: SSH access
-Port 5432: PostgreSQL database
-Accessing the Flask Web Application
-After running the container, open your browser and navigate to:
-
-arduino
-Copy
-Edit
+Ports Explanation:
+8000: Access the Flask web app in your browser.
+9001: Connect to the VNC server for graphical access.
+22: SSH access to the container.
+5432: PostgreSQL database access.
+5901: VNC server port for GUI access.
+4. Accessing the Flask Web Application
+After the container is running, open your browser and navigate to:
 http://localhost:8000
-Connecting via VNC
-Connect to the VNC server using your favorite VNC client.
-Use the following details:
+
+5. Connecting via VNC
+To access the VNC server, use your favorite VNC client with the following credentials:
 Host: localhost
 Port: 5901
-Password: rootpassword (set by Dockerfile)
-Docker Hub Image URL
-You can pull the image directly from Docker Hub using the following URL:
-
-https://hub.docker.com/r/amryyt/flask_postgres
-
-
-### GitHub Repository URL
-For the source code and Docker setup, check out the repository on GitHub:
-
-https://github.com/amryyt/flask_postgres
-
-### Contribute & Ask Questions
-Feel free to contribute to this project by submitting issues, pull requests, or suggestions. If you have any questions or encounter any problems, don't hesitate to open an issue in the GitHub repository.
-
+Password: rootpassword (set in Dockerfile)
+Docker Hub Image
+You can also pull the image directly from Docker Hub with the following link:
+Docker Hub Image
+GitHub Repository
+To view the source code, contribute, or report issues, visit the GitHub repository:
+GitHub Repository
+Contribution & Support
+Contributions are welcome! Feel free to submit pull requests, report issues, or ask questions via the GitHub repository. If you encounter any problems, please open an issue, and we'll be happy to assist.
