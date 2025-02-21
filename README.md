@@ -23,6 +23,7 @@ After building the Docker image, you can run the container using the command bel
 
 ```bash
 docker run -d -p 8000:8000 -p 9001:9001 -p 22:22 -p 5432:5432 -p 5901:5901 --name flask_container amryyt/flask_postgres
+```
 Port 8000: Flask web app (accessible via your browser)
 Port 9001: VNC server (for graphical access)
 Port 22: SSH access
@@ -45,7 +46,12 @@ You can pull the image directly from Docker Hub using the following URL:
 
 https://hub.docker.com/r/amryyt/flask_postgres
 
-GitHub Repository URL
+
+### GitHub Repository URL
 For the source code and Docker setup, check out the repository on GitHub:
 
 https://github.com/amryyt/flask_postgres
+
+### Contribute & Ask Questions
+Feel free to contribute to this project by submitting issues, pull requests, or suggestions. If you have any questions or encounter any problems, don't hesitate to open an issue in the GitHub repository.
+
