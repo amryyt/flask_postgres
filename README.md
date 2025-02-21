@@ -1,5 +1,3 @@
-
-```markdown
 # Flask PostgreSQL Docker Project
 
 This repository contains a Dockerized Flask application connected to a PostgreSQL database. It provides a simple Flask web app that can interact with the database, and the Docker setup includes a VNC server for GUI access.
@@ -25,7 +23,7 @@ After building the Docker image, you can run the container using the command bel
 
 ```bash
 docker run -d -p 8000:8000 -p 9001:9001 -p 22:22 -p 5432:5432 -p 5901:5901 --name flask_container amryyt/flask_postgres
-```
+
 
 - **Port 8000**: Flask web app (accessible via your browser)
 - **Port 9001**: VNC server (for graphical access)
